@@ -1,0 +1,13 @@
+/* Shop Page CSS */
+
+
+.shop-header {
+    background-image: url("https://staticg.sportskeeda.com/editor/2023/04/9973b-16825039789834-1920.jpg?w=840");
+    background-size: cover;
+    height: 700px;
+    color: white; 
+}
+
+.shop-stats {
+    color: white; 
+}
