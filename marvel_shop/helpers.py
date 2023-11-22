@@ -1,30 +1,32 @@
 import requests 
 import requests_cache 
 import json 
-from marvel import Marvel  #OMG WHY<--------
+import decimal
 
-m = Marvel("779573fcec789c10d27d623a2da47350",
-           "c032324b11b4993679447aff6381d33f0dbb2d5")
+# from marvel import Marvel  #OMG WHY<--------
 
-def get_marvel_data(name_):
+# m = Marvel("779573fcec789c10d27d623a2da47350",
+#            "c032324b11b4993679447aff6381d33f0dbb2d5")
+
+# def get_marvel_data(name_):
      
-     data = m.characters.all(name=name_)['data']['results'][0]
-     print(data)
+#      data = m.characters.all(name=name_)['data']['results'][0]
+#      print(data)
 
-     description = data['description'] #we know this is the right path because we tested it
-     comics = data['comics'] #however you need to get to the # of comics appeared in
-     image = data['image'] #however you need to get to an image url
+#      description = data['description'] #we know this is the right path because we tested it
+#      comics = data['comics'] #however you need to get to the # of comics appeared in
+#      image = data['image'] #however you need to get to an image url
 
-     marvel_stats = {
-          'description' : description,
-          'comics' : comics,
-          'image' : image 
-     }
+#      marvel_stats = {
+#           'description' : description,
+#           'comics' : comics,
+#           'image' : image 
+#      }
 
-     return marvel_stats #this is going to return a dictionary for that specific marvel character 
+#      return marvel_stats #this is going to return a dictionary for that specific marvel character 
 
-data = m.characters.all()
-print(data)
+# data = m.characters.all()
+# print(data)
 #------------------------------------HELP----------------------------------------------------------------
 #MARVEL API STUFF
 # def marvel_des(name_):

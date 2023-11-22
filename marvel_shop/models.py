@@ -7,7 +7,7 @@ from flask_marshmallow import Marshmallow
 
 
 #internal imports
-from .helpers import get_image 
+# from .helpers import get_image 
 
 
 
@@ -69,23 +69,23 @@ class User(db.Model, UserMixin):
 
 
 
-class Product(db.Model): #db.Model helps us translate python code to columns in SQL 
-    prod_id = db.Column(db.String, primary_key=True)
+class Character(db.Model): #db.Model helps us translate python code to columns in SQL 
+    char_id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     image = db.Column(db.String)
-    description = db.Column(db.String(200))
-    price = db.Column(db.Numeric(precision=10, scale=2), nullable=False)
-    quantity = db.Column(db.Integer, nullable=False)
+    char_description = db.Column(db.String(200))
+    super_power = db.Column(db.String)
+    movies = db.Column(db.String)
     date_added = db.Column(db.DateTime, default = datetime.utcnow)
     #eventually we need to connect this to orders 
 
-    def __init__(self, name, price, quantity, image="", description=""):
-        self.prod_id = self.set_id()
+    def __init__(self, char_id, name, char_descripion, super_power, movies, image=""):
+        self.char_id = self.set_id()
         self.name = name
         self.image = self.set_image(image, name)
-        self.description = description
-        self.price = price
-        self.quantity = quantity 
+        self.char_description = char_description
+        self.super_power = super_power
+        self.movies = movies
 
     
     def set_id(self):
@@ -94,23 +94,19 @@ class Product(db.Model): #db.Model helps us translate python code to columns in 
 
     def set_image(self, image, name):
         print('image', image)
-        if not image: #aka the user did not give us an image
-            print('we dont have an image')
-            image = get_image(name) #name is going to become search & we are going to use it to make our api call 
-            #come back and add our api call
-
         return image
+       
     
     #we need a method for when customers buy products to decrement & increment our quantity 
-    def decrement_quantity(self, quantity):
+    # def decrement_quantity(self, quantity):
 
-        self.quantity -= int(quantity)
-        return self.quantity
+    #     self.quantity -= int(quantity)
+    #     return self.quantity
     
-    def increment_quantity(self, quantity):
+    # def increment_quantity(self, quantity):
 
-        self.quantity += int(quantity)
-        return self.quantity 
+    #     self.quantity += int(quantity)
+    #     return self.quantity 
     
 
     def __repr__(self):

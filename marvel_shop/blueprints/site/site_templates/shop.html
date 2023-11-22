@@ -8,7 +8,7 @@
             <h2>Welcome to your Marvel Shop!</h2>
             {% if current_user.is_authenticated %}
             <h5>All your characters will show up here</h5>
-            <a href="{{ url_for('site.create')}}" class="btn btn-outline-dark mt-3">Create New Products</a>
+            <a href="{{ url_for('site.create')}}" class="btn btn-outline-dark mt-3">Add New Characters</a>
             {% else %}
             <h5>Please Sign In to View Characters</h5>
             <a href="/signin" class="btn btn-outline-dark mt-3">Sign In</a>
@@ -19,7 +19,7 @@
     <div class="row bg-dark p-3 shop-stats">
         <div class="col d-flex justify-content-center">Total # of Customers: 0</div>
         <div class="col d-flex justify-content-center">Total Sales : $0</div>
-        <div class="col d-flex justify-content-center">Total # of Products: 0</div>
+        <div class="col d-flex justify-content-center">Total # of Characters: 0</div>
     </div>
     <h5> {{ coolmessage }}</h5>
     {% for product in shop %}
