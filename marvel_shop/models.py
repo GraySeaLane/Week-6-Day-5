@@ -50,7 +50,7 @@ class User(db.Model, UserMixin):
 
 
 
-    #methods for editting our attributes 
+    #methods for editing our attributes 
     def set_id(self):
         return str(uuid.uuid4()) #all this is doing is creating a unique identification token
     
@@ -70,7 +70,6 @@ class User(db.Model, UserMixin):
 
 
 class Character(db.Model): #db.Model helps us translate python code to columns in SQL 
-    char_id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     image = db.Column(db.String)
     char_description = db.Column(db.String(200))
@@ -79,13 +78,13 @@ class Character(db.Model): #db.Model helps us translate python code to columns i
     date_added = db.Column(db.DateTime, default = datetime.utcnow)
     #eventually we need to connect this to orders 
 
-    def __init__(self, char_id, name, char_descripion, super_power, movies, image=""):
+    def __init__(self, char_id, name, char_description, super_power, movies, image=""):
         self.char_id = self.set_id()
         self.name = name
-        self.image = self.set_image(image, name)
         self.char_description = char_description
         self.super_power = super_power
         self.movies = movies
+        self.image = self.set_image(image, name)
 
     
     def set_id(self):
@@ -95,18 +94,6 @@ class Character(db.Model): #db.Model helps us translate python code to columns i
     def set_image(self, image, name):
         print('image', image)
         return image
-       
-    
-    #we need a method for when customers buy products to decrement & increment our quantity 
-    # def decrement_quantity(self, quantity):
-
-    #     self.quantity -= int(quantity)
-    #     return self.quantity
-    
-    # def increment_quantity(self, quantity):
-
-    #     self.quantity += int(quantity)
-    #     return self.quantity 
     
 
     def __repr__(self):

@@ -2,8 +2,8 @@ from flask import Blueprint, flash, redirect, render_template, request
 
 
 #internal import 
-from marvel_shop.models import Product, db, Customer, Order 
-from marvel_shop.forms import ProductForm
+from marvel_shop.models import Character, db, Customer, Order 
+from marvel_shop.forms import CharacterForm
 
 
 

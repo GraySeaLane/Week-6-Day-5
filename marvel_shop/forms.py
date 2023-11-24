@@ -37,10 +37,11 @@ class RegisterForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password', validators=[ DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
 
-class ProductForm(FlaskForm):
+class CharacterForm(FlaskForm):
+    char_id = StringField('Character Id', validators=[ DataRequired() ] )
     name = StringField('Product Name', validators=[ DataRequired() ] )
+    char_description = StringField('Description **Optional')
+    super_power = StringField('Description **Optional')
+    movies = StringField('Description **Optional')
     image = StringField('Img url **Optional')
-    description = StringField('Description **Optional')
-    price = DecimalField('Price', validators=[ DataRequired() ])
-    quantity = IntegerField('Quantity', validators=[ DataRequired() ])
     submit = SubmitField('Submit')
